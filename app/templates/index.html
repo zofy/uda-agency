@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Uda Agency</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css')}}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="center">
+            <h1>Welcome to Uda-Agency!</h1>
+            <div class="middle">
+                <textarea id="token"></textarea>
+            </div>
+            <div class="middle">
+                <button id="login" onclick="window.location.href='/login';">Log in</button>
+                <button id="logout" onclick="window.location.href='/logout';logout()">Log out</button>
+            </div>
+        </div>
+    </body>
+    <footer>
+        <script src="{{url_for('static', filename='index.js')}}"></script>
+    </footer>
+</html>
