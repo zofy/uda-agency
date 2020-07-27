@@ -1,14 +1,15 @@
 import json
+import os
 from functools import wraps
 from urllib.request import urlopen
 
 import flask
 from jose import jwt
 
-AUTH0_DOMAIN = 'udacoffee.eu.auth0.com'
-ALGORITHMS = ['RS256']
-API_AUDIENCE = 'http://agency.eu'
-API_CLIENT_ID = 'cGDWtW63Z1UXp1DSKxGSywE00FjA69i1'
+AUTH0_DOMAIN = os.environ['AUTH0_DOMAIN']
+ALGORITHMS = os.environ['ALGORITHMS']
+API_AUDIENCE = os.environ['API_AUDIENCE']
+API_CLIENT_ID = os.environ['API_CLIENT_ID']
 API_BASE_URL = f'https://{AUTH0_DOMAIN}'
 
 
