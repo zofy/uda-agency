@@ -28,7 +28,10 @@ This will install all of the required packages we selected within the `requireme
 
 - [SQLAlchemy](https://www.sqlalchemy.org/) is the Python SQL toolkit and ORM we'll use handle the lightweight sqlite database. You'll primarily work in app.py and can reference models.py.
 
-- [Flask-CORS](https://flask-cors.readthedocs.io/en/latest/#) is the extension we'll use to handle cross origin requests from our frontend server. 
+- [Flask-CORS](https://flask-cors.readthedocs.io/en/latest/#) is the extension we'll use to handle cross origin requests from our frontend server.
+
+#### Setup enviroment variables
+Run `source setup.sh` in order to export `env` variables used to configure the app.
 
 ## Database Setup
 In Postgres create database called `agency` run:
@@ -240,3 +243,6 @@ With all of the valid tokens, run:
 ```
 python test_app.py
 ```
+
+## Live app
+Uda-Agency is up and running at: `https://uda-agency.herokuapp.com/`.
