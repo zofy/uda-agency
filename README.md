@@ -1,4 +1,5 @@
 # Capstone Project Uda-Agency API Backend
+This is a simple CRUD flask based project created for educational purposes as a part of Udacity Fullstack ND.The main idea behind the project, is to demonstrate a basic knowledge about fullstack web-development. App contains 2 database models (`actor` and `movie`) with CRUD operations implemented. Authentication is handled with the help of `Auth0` service. There are 3 roles with different permissions within the app.
 
 ## Getting Started
 
@@ -228,21 +229,53 @@ python run.py
     - `updated_id`: id of created actor
 
 
+## Roles
+
+### Casting Assistant
+Can view actors and movies:
+- `GET '/actors'`
+- `GET '/actors-details'`
+- `GET '/movies'`
+- `GET '/movies-details'`
+
+### Casting Director
+All of the Assistant's permissions and:
+- add, modify and delete `actors`:
+    - `POST '/actors'`
+    - `PATCH '/actors/{int:actor_id}'`
+    - `DELETE '/actors/{int:actor_id}'`
+- modify `movies`:
+    - `PATCH '/movies/{int:movie_id}'`
+
+### Executive Producer
+All of the Director's permissions and:
+- add or delete `movies`:
+    - `POST '/movies'`
+    - `DELETE '/movies/{int:movie_id}'`
+
+
 ## Testing
 To run the tests make sure to have valid `JWTs` in the `tests/test_permissions.py`.
 In order to obtain valid tokens, navigate to: `https://uda-agency.herokuapp.com/` and login with
 different roles:
 
 #### Roles credentials:
-- `assistant`: assistant@agency.com [UDACITY_fullstack]
-- `director`: director@agency.com [UDACITY_fullstack]
-- `producer`: producer@agency.com [UDACITY_fullstack]
+- `assistant`: assistant@agency.com
+- `director`: director@agency.com
+- `producer`: producer@agency.com
+
+All 3 accounts have the same password: `UDACITY_fullstack`
 
 After successful login, you'll see token displayed on the page.
 With all of the valid tokens, run:
 ```
+source setup.sh
 python test_app.py
 ```
+
+#### Postman collection
+Import `uda-agency.postman_collection.json` and run the whole collection.
+In case `JWTs` are expired, obtain new ones (as described above) and update the collection.
 
 ## Live app
 Uda-Agency is up and running at: `https://uda-agency.herokuapp.com/`.
