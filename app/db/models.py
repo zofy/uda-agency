@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, DateTime, Enum, Integer, String
 from sqlalchemy.exc import SQLAlchemyError
 
-DATE_FORMAT = '%Y-%m-%d'
+DATE_FORMAT = "%Y-%m-%d"
 db = SQLAlchemy()
 
 
@@ -38,7 +38,7 @@ class DBOperationsMixin:
     def update_by_mapping(self, mapping):
         for k, v in mapping.items():
             if k not in self.__dict__:
-                raise ValueError(f'Invalid mapping for {self.__class__}')
+                raise ValueError(f"Invalid mapping for {self.__class__}")
             setattr(self, k, v)
         self.update()
 
@@ -49,32 +49,32 @@ class DBOperationsMixin:
 
 
 class Movie(db.Model, DBOperationsMixin):
-    __tablename__ = 'movies'
+    __tablename__ = "movies"
     id = Column(Integer(), primary_key=True)
     title = Column(String(150), nullable=False, unique=True)
     release_date = Column(DateTime(), nullable=False)
 
     def format(self):
         return {
-            'id': self.id,
-            'title': self.title,
-            'release_date': datetime.strftime(self.release_date, DATE_FORMAT),
+            "id": self.id,
+            "title": self.title,
+            "release_date": datetime.strftime(self.release_date, DATE_FORMAT),
         }
 
 
 class Actor(db.Model, DBOperationsMixin):
-    __tablename__ = 'actors'
+    __tablename__ = "actors"
     id = Column(Integer(), primary_key=True)
     first_name = Column(String(80), nullable=False)
     last_name = Column(String(80), nullable=False)
     age = Column(Integer(), nullable=False)
-    gender = Column('gender', Enum(GenderType), nullable=False)
+    gender = Column("gender", Enum(GenderType), nullable=False)
 
     def format(self):
         return {
-            'id': self.id,
-            'first_name': self.first_name,
-            'last_name': self.last_name,
-            'age': self.age,
-            'gender': self.gender.name,
+            "id": self.id,
+            "first_name": self.first_name,
+            "last_name": self.last_name,
+            "age": self.age,
+            "gender": self.gender.name,
         }

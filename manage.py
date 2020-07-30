@@ -7,8 +7,8 @@ from run import APP
 migrate = Migrate(APP, models.db)
 manager = Manager(APP)
 
-manager.add_command('db', MigrateCommand)
+manager.add_command("db", MigrateCommand)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     manager.run()

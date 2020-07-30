@@ -1,9 +1,51 @@
 from .utils import TestAgencyMixin
 
 JWTs = {
-    'assistant': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImprZDBwdWhGSlBWdnc4ZHRFMzdtbCJ9.eyJpc3MiOiJodHRwczovL3VkYWNvZmZlZS5ldS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYxMWIyNzE3YTcwM2EwMDEzODU3M2VhIiwiYXVkIjoiaHR0cDovL2FnZW5jeS5ldSIsImlhdCI6MTU5NTU5NDU1NiwiZXhwIjoxNTk1NjgwOTU2LCJhenAiOiJjR0RXdFc2M1oxVVhwMURTS3hHU3l3RTAwRmpBNjlpMSIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZ2V0OmFjdG9ycyIsImdldDphY3RvcnMtZGV0YWlscyIsImdldDptb3ZpZXMiLCJnZXQ6bW92aWVzLWRldGFpbHMiXX0.dy42PLJDLYRrSn0JD_uhxMxuZBPtnByi9tT6l3PqjoE-eFJSX-scoPZuN-Q-GbMFYn6NlyrpZYQ0rJ8cU6qaMdLWyr-WPTKj2Ymts8slbjDk_HEXpPsZ1NotkwNA9AjbIHZy0FTFfac_wjLX_KewZcjl5sMbiVnApHPOwI54RAAo-jCGrRFfzis7FU95xccxukWdPvba9E-CdEJEnubNhg5NnF0-pNR7cIEeRTB533UsPX_6jWMUWaj11mrIXEbzzizwWcd2ZvHWrffyr6NOWv7kb1DlWquHe1-I1nFmr_QBA18TJfKysaPcSRuiwEL4r17e81humHZ_lMunoGsffA',
-    'director': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImprZDBwdWhGSlBWdnc4ZHRFMzdtbCJ9.eyJpc3MiOiJodHRwczovL3VkYWNvZmZlZS5ldS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYxMWIzNTQxYmE4ZjMwMDE5YjNlYWI4IiwiYXVkIjoiaHR0cDovL2FnZW5jeS5ldSIsImlhdCI6MTU5NTU5NDU4NSwiZXhwIjoxNTk1NjgwOTg1LCJhenAiOiJjR0RXdFc2M1oxVVhwMURTS3hHU3l3RTAwRmpBNjlpMSIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImdldDphY3RvcnMiLCJnZXQ6YWN0b3JzLWRldGFpbHMiLCJnZXQ6bW92aWVzIiwiZ2V0Om1vdmllcy1kZXRhaWxzIiwicGF0Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.cHs3iuYphTk5hmYoD6Pz0ofRh2K18Voqbk_mF1F8w1EpEdvfbV0WC3F-5KmLbUwbzVINgP8uUja7BvSd0Y7N2HA35ahgwfY8TF-Y0acFNOQ04zgT7QEJru_W6cGjIZJQ7ODBthJpa0wbTZoK63jUNNEtXVqSi5GO8kJNo33IT4QJ5bWl82d65ZBKt6Wg-yLRyrkc6fI4w3bn7zTBOQ2J6Cy4dVpWWIJnFuSG1rJ_sJzWyubsd84mHLCSX3ki5MFf2r2518EAdu2OxMRpJ7dsXPFf2gEbvBUVc5vbHVvEXLMm_RJNyqEvknkBQl5LMsMdU0b3x2FdR4BKbm16G-UPQQ',
-    'producer': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImprZDBwdWhGSlBWdnc4ZHRFMzdtbCJ9.eyJpc3MiOiJodHRwczovL3VkYWNvZmZlZS5ldS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWYxMWIzOWQxYmE4ZjMwMDE5YjNlYWVmIiwiYXVkIjoiaHR0cDovL2FnZW5jeS5ldSIsImlhdCI6MTU5NTU5NDYxNSwiZXhwIjoxNTk1NjgxMDE1LCJhenAiOiJjR0RXdFc2M1oxVVhwMURTS3hHU3l3RTAwRmpBNjlpMSIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0OmFjdG9ycy1kZXRhaWxzIiwiZ2V0Om1vdmllcyIsImdldDptb3ZpZXMtZGV0YWlscyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.ckLNDEwmQZweYuaAls60Cx-ct945lPEYsiaXnvp6oyEDBo6feem4DAaJyxGRS5Vxj0c1pXKPlsZZVb2V1wrJwWVsNpp0csHVImdh6pzNe-rbJbQhrqHcjmxRzwI9eUiZ84y_OJDi2GZ8l5HKUXKq3y4FLhKy8ywg0y6yKnoxspzuUvioJh-JX_swaweAJOCOfoW6ECgMiSLPEtzLUXk4VtPchgMWgr0KA3Dp0TsFVHn2yicNuVdHV77J2ypGjNLXbQyYVfOIkJJT4x2x7uOVEGW4Iu5JYuqPpnHJL-aUvjZJAEU6l6hPYPDEkfMqSq99kOziGgcGlpN9MSckFzJD_A',
+    "assistant": (
+        "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImprZDBwdWhGSlBWd"
+        "nc4ZHRFMzdtbCJ9.eyJpc3MiOiJodHRwczovL3VkYWNvZmZlZS5ldS5hdXRoMC5jb20v"
+        "Iiwic3ViIjoiYXV0aDB8NWYxMWIyNzE3YTcwM2EwMDEzODU3M2VhIiwiYXVkIjoiaHR0"
+        "cDovL2FnZW5jeS5ldSIsImlhdCI6MTU5NjExODM5MywiZXhwIjoxNTk2MjA0NzkzLCJh"
+        "enAiOiJjR0RXdFc2M1oxVVhwMURTS3hHU3l3RTAwRmpBNjlpMSIsInNjb3BlIjoiIiwi"
+        "cGVybWlzc2lvbnMiOlsiZ2V0OmFjdG9ycyIsImdldDphY3RvcnMtZGV0YWlscyIsImdl"
+        "dDptb3ZpZXMiLCJnZXQ6bW92aWVzLWRldGFpbHMiXX0.AJ_CKt7aoQiK9pRfpkyUvYA3"
+        "paA2vf-EIr0SgWYjH15WpQAGwoYjIB9LL0LBAXmcbMzegMJdPryhHOim8yeJ2RSC0C-Y"
+        "fS-PmXw5qTA_jENFXv7EAPbX8MgJFmTW2alvzBpQQTXCpr6jNx6n2gphSLs_dcb_wUvm"
+        "eGP6RNDrTD7nPuerUzfWcFfigjAbgVVMEH5hP0ypsc88HVUW2LVtTyt1qh57dhOvU1mb"
+        "ShqxAPUKdRd43gOY94DeHtovzKJpA5WlYvKMYuVTi-SpC7HtrN22i2t-tSGPMIwxhG_k"
+        "oiafIZUTq1KRm75Ehv2LzqSZwHZCPPtOYNp4kiLUet3Sdw"
+    ),
+    "director": (
+        "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImprZDBwdWhGSlBWd"
+        "nc4ZHRFMzdtbCJ9.eyJpc3MiOiJodHRwczovL3VkYWNvZmZlZS5ldS5hdXRoMC5jb20v"
+        "Iiwic3ViIjoiYXV0aDB8NWYxMWIzNTQxYmE4ZjMwMDE5YjNlYWI4IiwiYXVkIjoiaHR0"
+        "cDovL2FnZW5jeS5ldSIsImlhdCI6MTU5NjEyMTYwMiwiZXhwIjoxNTk2MjA4MDAyLCJh"
+        "enAiOiJjR0RXdFc2M1oxVVhwMURTS3hHU3l3RTAwRmpBNjlpMSIsInNjb3BlIjoiIiwi"
+        "cGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImdldDphY3RvcnMiLCJnZXQ6YWN0"
+        "b3JzLWRldGFpbHMiLCJnZXQ6bW92aWVzIiwiZ2V0Om1vdmllcy1kZXRhaWxzIiwicGF0"
+        "Y2g6YWN0b3JzIiwicGF0Y2g6bW92aWVzIiwicG9zdDphY3RvcnMiXX0.F3EJY_rhLlDg"
+        "vYXxe8CYeWf1-hybd56aGK1gIEnJhdYuGIlc67FGDGc9erAKLh44rVkYUL_IVKak4NTJ"
+        "2qBuH0CTvJg_IUPHC8GLaBPinqQJIqzfivvya277Qvb9IuiCSfNz8IJYzUZAvU69iK7e"
+        "1LpHJyukPVAx-P8GIiS_9jS-Zf6RNgtfDPwPjExcS1zyqbbJCHV0OMGdOLPgwv5BulqI"
+        "rbAYentQzOa41do792yG5YAG9PZSGp1rs9LTaVDu-YFrXftA5Ws_PrvaMZ697kn_pIL0"
+        "iziT_cgZO8h8wIufDTj1xIrJ-zOS6j8SEvNnjnNZRErsiH4eeNqwcn9oCQ"
+    ),
+    "producer": (
+        "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImprZDBwdWhGSlBWd"
+        "nc4ZHRFMzdtbCJ9.eyJpc3MiOiJodHRwczovL3VkYWNvZmZlZS5ldS5hdXRoMC5jb20v"
+        "Iiwic3ViIjoiYXV0aDB8NWYxMWIzOWQxYmE4ZjMwMDE5YjNlYWVmIiwiYXVkIjoiaHR0"
+        "cDovL2FnZW5jeS5ldSIsImlhdCI6MTU5NjEzODMwOCwiZXhwIjoxNTk2MjI0NzA4LCJh"
+        "enAiOiJjR0RXdFc2M1oxVVhwMURTS3hHU3l3RTAwRmpBNjlpMSIsInNjb3BlIjoiIiwi"
+        "cGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6"
+        "YWN0b3JzIiwiZ2V0OmFjdG9ycy1kZXRhaWxzIiwiZ2V0Om1vdmllcyIsImdldDptb3Zp"
+        "ZXMtZGV0YWlscyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0"
+        "b3JzIiwicG9zdDptb3ZpZXMiXX0.anj4v3N5NP8pMyC-1jHEiOzQ-4wvB87Pevax1J15"
+        "JjNMZn9mz5JeSs1ULbm7qqfnPDFQBRAsMM6DYmD7AbUFXxbzXfihAyx00T4QCn7P3X5a"
+        "d7SzvknBgEqP_GY6GbwpyXtQ1SE4qYb8c7rwUFaRqC9A1auYema-GtFx_xDKHHMUl-Jz"
+        "fdTrL52cwMVal1gv3zSRhhfTTBGFNnlrmDBf4r7rggriATwij131kiepVcDu8fIPjUck"
+        "hRpTzq6FvnGQQnFXiRUeyySFPO_-Y3muQNdl6UYpnq3b6T9hr78791X0KY0aSjwjPyiT"
+        "-FYuoE9M0ldS3YdWUGJ1Od9Q_DHDVQ"
+    ),
 }
 
 
@@ -11,103 +53,102 @@ class TestAgencyRoles(TestAgencyMixin):
     """Test permissions of uda-agency"""
 
     def test_assistant_role(self):
-        headers = {'Authorization': JWTs['assistant']}
-        res = self.client().get('/actors', headers=headers)
+        headers = {"Authorization": JWTs["assistant"]}
+        res = self.client().get("/actors", headers=headers)
         self.assertEqual(res.status_code, 200)
 
-        res = self.client().get('/actors/1', headers=headers)
+        res = self.client().get("/actors/1", headers=headers)
         self.assertEqual(res.status_code, 200)
 
-        res = self.client().post('/actors', headers=headers, json={})
+        res = self.client().post("/actors", headers=headers, json={})
         self.assertEqual(res.status_code, 403)
 
-        res = self.client().patch('/actors/1', headers=headers, json={})
+        res = self.client().patch("/actors/1", headers=headers, json={})
         self.assertEqual(res.status_code, 403)
 
-        res = self.client().delete('/actors/1', headers=headers)
+        res = self.client().delete("/actors/1", headers=headers)
         self.assertEqual(res.status_code, 403)
 
-        res = self.client().get('/movies', headers=headers)
+        res = self.client().get("/movies", headers=headers)
         self.assertEqual(res.status_code, 200)
 
-        res = self.client().get('/movies/1', headers=headers)
+        res = self.client().get("/movies/1", headers=headers)
         self.assertEqual(res.status_code, 200)
 
-        res = self.client().post('/movies', headers=headers, json={})
+        res = self.client().post("/movies", headers=headers, json={})
         self.assertEqual(res.status_code, 403)
 
-        res = self.client().patch('/movies/1', headers=headers, json={})
+        res = self.client().patch("/movies/1", headers=headers, json={})
         self.assertEqual(res.status_code, 403)
 
-        res = self.client().delete('/movies/1', headers=headers)
+        res = self.client().delete("/movies/1", headers=headers)
         self.assertEqual(res.status_code, 403)
 
     def test_director_role(self):
-        headers = {'Authorization': JWTs['director']}
-        res = self.client().get('/actors', headers=headers)
+        headers = {"Authorization": JWTs["director"]}
+        res = self.client().get("/actors", headers=headers)
         self.assertEqual(res.status_code, 200)
 
-        res = self.client().get('/actors/1', headers=headers)
+        res = self.client().get("/actors/1", headers=headers)
         self.assertEqual(res.status_code, 200)
 
-        data = {'first_name': 'Matt', 'last_name': 'Gail', 'age': 42, 
-                'gender': 'MALE'}
-        res = self.client().post('/actors', headers=headers, json=data)
+        data = {"first_name": "Matt", "last_name": "Gail", "age": 42,
+                "gender": "MALE"}
+        res = self.client().post("/actors", headers=headers, json=data)
         self.assertEqual(res.status_code, 200)
 
-        res = self.client().patch('/actors/1', headers=headers, json={})
+        res = self.client().patch("/actors/1", headers=headers, json={})
         self.assertEqual(res.status_code, 200)
 
-        res = self.client().delete('/actors/1', headers=headers)
+        res = self.client().delete("/actors/1", headers=headers)
         self.assertEqual(res.status_code, 200)
 
-        res = self.client().get('/movies', headers=headers)
+        res = self.client().get("/movies", headers=headers)
         self.assertEqual(res.status_code, 200)
 
-        res = self.client().get('/movies/1', headers=headers)
+        res = self.client().get("/movies/1", headers=headers)
         self.assertEqual(res.status_code, 200)
 
-        res = self.client().post('/movies', headers=headers, json={})
+        res = self.client().post("/movies", headers=headers, json={})
         self.assertEqual(res.status_code, 403)
 
-        res = self.client().patch('/movies/1', headers=headers, json={})
+        res = self.client().patch("/movies/1", headers=headers, json={})
         self.assertEqual(res.status_code, 200)
 
-        res = self.client().delete('/movies/1', headers=headers)
+        res = self.client().delete("/movies/1", headers=headers)
         self.assertEqual(res.status_code, 403)
-
 
     def test_producer_role(self):
-        headers = {'Authorization': JWTs['producer']}
-        res = self.client().get('/actors', headers=headers)
+        headers = {"Authorization": JWTs["producer"]}
+        res = self.client().get("/actors", headers=headers)
         self.assertEqual(res.status_code, 200)
 
-        res = self.client().get('/actors/1', headers=headers)
+        res = self.client().get("/actors/1", headers=headers)
         self.assertEqual(res.status_code, 200)
 
-        data = {'first_name': 'Matt', 'last_name': 'Gail', 'age': 42, 
-                'gender': 'MALE'}
-        res = self.client().post('/actors', headers=headers, json=data)
+        data = {"first_name": "Matt", "last_name": "Gail", "age": 42,
+                "gender": "MALE"}
+        res = self.client().post("/actors", headers=headers, json=data)
         self.assertEqual(res.status_code, 200)
 
-        res = self.client().patch('/actors/1', headers=headers, json={})
+        res = self.client().patch("/actors/1", headers=headers, json={})
         self.assertEqual(res.status_code, 200)
 
-        res = self.client().delete('/actors/1', headers=headers)
+        res = self.client().delete("/actors/1", headers=headers)
         self.assertEqual(res.status_code, 200)
 
-        res = self.client().get('/movies', headers=headers)
+        res = self.client().get("/movies", headers=headers)
         self.assertEqual(res.status_code, 200)
 
-        res = self.client().get('/movies/1', headers=headers)
+        res = self.client().get("/movies/1", headers=headers)
         self.assertEqual(res.status_code, 200)
 
-        data = {'title': 'Brand New', 'release_date': '2033-03-11'}
-        res = self.client().post('/movies', headers=headers, json=data)
+        data = {"title": "Brand New", "release_date": "2033-03-11"}
+        res = self.client().post("/movies", headers=headers, json=data)
         self.assertEqual(res.status_code, 200)
 
-        res = self.client().patch('/movies/1', headers=headers, json={})
+        res = self.client().patch("/movies/1", headers=headers, json={})
         self.assertEqual(res.status_code, 200)
 
-        res = self.client().delete('/movies/1', headers=headers)
+        res = self.client().delete("/movies/1", headers=headers)
         self.assertEqual(res.status_code, 200)
