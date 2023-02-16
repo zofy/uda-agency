@@ -79,6 +79,6 @@ toml==0.10.0
 typing==3.7.4.1
 urllib3==1.26.5
 wcwidth==0.2.4
-Werkzeug==1.0.1
+Werkzeug==2.2.3
 wrapt==1.11.1
 WTForms==2.3.1
